@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="output.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+        <h1 class="text-center text-4xl font-bold text-gray-800 mb-8">Task Manager</h1>
+
+        <div class="flex flex-col lg:flex-row gap-10">
+            <!-- Form Section -->
+            <div class="w-full lg:w-1/2 bg-white shadow-lg rounded-lg p-6">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4">Add New Task</h2>
+                <form class="space-y-4">
+                    <!-- Task Name -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Task Name</label>
+                        <input type="text" id="name"
+                            class="w-full p-3 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Enter task name" required>
+                    </div>
+
+                    <!-- Date Picker -->
+                    <div>
+                        <label for="date" class="block text-sm font-medium text-gray-700">Choose Date</label>
+                        <div class="relative ">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker id="date" type="text"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="date" required>
+                        </div>
+                    </div>
+
+                    <!-- Priority -->
+                    <div>
+                        <label for="priority" class="block text-sm font-medium text-gray-700">Priority</label>
+                        <select id="priority"
+                            class="w-full p-3 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submit" onclick="showData()"
+                        class="px-2 py-2 w-30 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-300">
+                        Add Task
+                    </button>
+                </form>
+            </div>
+
+            <!-- Task List Section -->
+            <div class="w-full lg:w-1/1 bg-white shadow-lg rounded-lg p-6">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4">Task List</h2>
+
+                <div class="relative overflow-x-auto">
+                    <table class="w-full text-sm text-left border border-gray-200">
+                        <thead class="bg-gray-200 text-gray-600 uppercase text-xs">
+                            <tr>
+                                <th class="px-6 py-3">TASK NAME</th>
+                                <th class="px-6 py-3">DUE DATE</th>
+                                <th class="px-6 py-3">PRIORITY</th>
+                                <th class="px-6 py-3 text-center">STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="name" class="px-10"></td>
+                                <td id="date" class="px-10"></td>
+                                <td id="priority" class="px-10"></td>
+                                <td id="status" class="px-10"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</body>
+
+</html>
