@@ -31,13 +31,6 @@ function showData() {
       return;
     }
 
-    // Validate due date (prevent past dates)
-    let today = new Date().toISOString().split("T")[0];
-    if (date < today) {
-      alert("Due date cannot be in the past. Please select again.");
-      return;
-    }
-
     // Priority
     let priorityColor;
     switch (priority) {
